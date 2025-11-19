@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+body{
+    background-image: linear-gradient(to right top, #092b5e, #00609b, #0095a6, #00c678, #a8eb12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#drum-machine{
+    display: flex;
+    border: none;
+    border-radius: 24px;
+    flex-direction: column;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#display{
+    margin-bottom: 24px;
+    border: none;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    font-family: "Doto", sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: #a8eb12;
+    text-shadow: 0 0 20px rgba(168, 235, 18, 0.5);
+    border-radius: 16px;
+    min-height: 40px;
+    min-width: 300px;
+    display: flex;
+    align-items: center;   
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    background: transparent;
+    padding: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.drum-pad{
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    min-height: 70px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 
+        0 4px 16px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.drum-pad:hover{
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.drum-pad:active{
+    transform: translateY(0);
+    background: rgba(168, 235, 18, 0.3);
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.2),
+        inset 0 0 20px rgba(168, 235, 18, 0.4);
+}
+
+.drum-pad.active{ /*So it works with the keyboard */
+    transform: translateY(0) scale(0.95);
+    background: rgba(168, 235, 18, 0.4);
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.2),
+        inset 0 0 30px rgba(168, 235, 18, 0.6);
 }
