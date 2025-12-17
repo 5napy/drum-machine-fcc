@@ -55,23 +55,33 @@ function App() {
   };
 
   return (
-    <div id="drum-machine">
-      <div id="display"></div>
-      <div id="buttons">
-      {pads.map((pad) => (
-        <button
-          key={pad.key}
-          className="drum-pad"
-          id={pad.id}
-          onClick={() => playSound(pad)}
-        >
-          {pad.key}
-          <audio className="clip" id={pad.key} src={pad.src}></audio>
-        </button>
-
-      ))}
+    <>
+      <div className="App">
+        <div id="drum-machine">
+          <h1 className='title'>Drum Machine</h1>
+          <div id="display"></div>
+          <div id="buttons">
+            {pads.map((pad) => (
+              <button
+                key={pad.key}
+                className="drum-pad"
+                id={pad.id}
+                onClick={() => playSound(pad)}
+              >
+                {pad.key}
+                <audio className="clip" id={pad.key} src={pad.src}></audio>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+      <footer>
+        <div id="instructions">
+          Use your keyboard or click on the pad to play a sound
+        </div>
+        <div id="credits">Created by Gustavo B - 2025</div>
+      </footer>
+    </>
   );
 }
 

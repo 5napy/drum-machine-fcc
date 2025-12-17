@@ -1,11 +1,25 @@
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
 body{
     background-image: linear-gradient(to right top, #092b5e, #00609b, #0095a6, #00c678, #a8eb12);
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
     font-family: system-ui, -apple-system, sans-serif;
+}
+
+.App {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 #drum-machine{
@@ -13,7 +27,7 @@ body{
     border: none;
     border-radius: 24px;
     flex-direction: column;
-    padding: 32px;
+    padding: 8px 32px 32px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
     box-shadow: 
@@ -79,10 +93,70 @@ body{
         inset 0 0 20px rgba(168, 235, 18, 0.4);
 }
 
-.drum-pad.active{ /*So it works with the keyboard */
+.drum-pad.active{
     transform: translateY(0) scale(0.95);
     background: rgba(168, 235, 18, 0.4);
     box-shadow: 
         0 2px 8px rgba(0, 0, 0, 0.2),
         inset 0 0 30px rgba(168, 235, 18, 0.6);
+}
+
+.title{
+    font-family: "Doto", sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: #FFFFFF;
+    text-shadow: 0;
+    margin: 10px 0 10px;
+    font-style: italic;
+}
+
+footer{
+    padding: 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+}
+
+#instructions{
+    margin-bottom: 8px;
+}
+
+#credits{
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #drum-machine {
+        padding: 8px 20px 20px;
+    }
+    
+    #display {
+        min-width: 250px;
+        font-size: 20px;
+        padding: 16px;
+    }
+    
+    .drum-pad {
+        min-height: 60px;
+        font-size: 16px;
+    }
+    
+    .title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #display {
+        min-width: 200px;
+        font-size: 18px;
+    }
+    
+    .drum-pad {
+        min-height: 50px;
+        font-size: 14px;
+    }
 }
